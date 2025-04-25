@@ -1,5 +1,5 @@
 <div>
-  <button (click)="onClickEvent()">
+  <button (click)="onClickEvent()" [class.active]="active">
       <img [src]="user.avatar" 
       [alt]="user.name">
       <span>{{ user.name }}</span>

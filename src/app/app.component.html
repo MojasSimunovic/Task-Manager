@@ -2,9 +2,15 @@
 <main>
 <ul id="users">
   @for(user of users; track user.id) {
-    <li>
-      <app-user [user]="user" (select)="onUserSelect($event)"/>
-    </li>
+    @if(user === selectedUser) {
+      <li>
+        <app-user [active]="true" [user]="user" (select)="onUserSelect($event)"/>
+      </li>
+    }@else {
+      <li>
+        <app-user [user]="user" (select)="onUserSelect($event)"/>
+      </li>
+    }
   } 
 </ul>
   @if (selectedUser) {
