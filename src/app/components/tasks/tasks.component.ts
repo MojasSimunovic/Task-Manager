@@ -3,6 +3,7 @@ import { TaskComponent } from './task/task.component';
 // import { dummyTasks } from '../../../dummy-tasks';
 import { User } from '../user/user.model';
 import { NewTaskComponent } from './new-task/new-task.component';
+import { newTask } from './task/task.model';
 
 @Component({
   selector: 'app-tasks',
@@ -50,5 +51,20 @@ export class TasksComponent {
   }
   onAddTaskModal() {
     this.isAddingTask = true;
+  }
+  onDialogClose() {
+    this.isAddingTask = false;
+  }
+
+  onAddEvent(data: newTask) {
+    let newTask = {
+      id: `t${this.dummyTasks.length + 1}`,
+      userId: this.user.id,
+      title: data.title,
+      summary: data.summary,
+      dueDate: data.date
+    }
+    this.dummyTasks.push(newTask);
+    this.isAddingTask = false;
   }
 }

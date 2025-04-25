@@ -1,11 +1,11 @@
 @if (isAddingTask) {
-  <app-new-task/>
+  <app-new-task [userId]="user.id" (closeDialog)="onDialogClose()" (addEvent)="onAddEvent($event)"/>
 }
 <section id="tasks">
   <header>
     <h2>{{ user.name }}'s Tasks</h2>
     <menu>
-      <button (click)="onAddTaskModal()">add task</button>
+      <button (click)="onAddTaskModal()">Add task</button>
     </menu>
   </header>
   <ul>
